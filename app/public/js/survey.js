@@ -18,5 +18,9 @@ $("#survey").on("submit",function(event){
     console.log(newEmployee)
     $.post("/find-employee", newEmployee, function(data){
         console.log(data)
+        var employeeImage = $('<img>')
+        employeeImage.attr('src', data.photo)
+        $('#match').append(data.name)
+        $('#match').append(employeeImage)
     })
 })

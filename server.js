@@ -1,7 +1,11 @@
 var express = require("express")
 var app = express();
-let PORT = 8080;
+let PORT = process.env.PORT || 8080
 
+app.use(express.json())
+app.use(express.urlencoded({
+    extended:true
+}))
 
 var htmlRoutes = require("./app/routing/htmlRoutes.js")
 app.use(htmlRoutes);
